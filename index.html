@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZIVO IT — Odoo Gold Partner | ERP Implementation &amp; Digital Automation</title>
+  <meta name="description"
+    content="ZIVO IT is a Certified Odoo Gold Partner delivering ERP implementation, business transformation and process automation across 20+ industries.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg-0: #060B1C;
+      --bg-1: #0B1530;
+      --bg-2: #101E42;
+      --line: #1D2C54;
+      --cyan: #22D3EE;
+      --cyan-soft: rgba(34, 211, 238, .14);
+      --teal: #0EA5B7;
+      --gold: #F2B441;
+      --gold-soft: rgba(242, 180, 65, .14);
+      --text-0: #EDF2FB;
+      --text-1: #AEBAD9;
+      --text-2: #7E8CB0;
+      --radius: 14px;
+      --maxw: 1200px;
+      --ff-display: 'Space Grotesk', sans-serif;
+      --ff-body: 'Inter', sans-serif;
+      --ff-mono: 'JetBrains Mono', monospace;
+      --ease: cubic-bezier(.16, .84, .44, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: var(--bg-0);
+      color: var(--text-0);
+      font-family: var(--ff-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(34, 211, 238, .05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 211, 238, .05) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+    }
+
+    img {
+      max-width: 100%;
+      display: block
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    ul {
+      list-style: none
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: inherit
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 3px;
+      border-radius: 4px
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 32px;
+      position: relative;
+      z-index: 1
+    }
+
+    section {
+      position: relative;
+      z-index: 1
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--ff-display);
+      font-weight: 600;
+      letter-spacing: -.02em;
+      color: var(--text-0)
+    }
+
+    .eyebrow {
+      font-family: var(--ff-mono);
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 18px;
+      height: 1px;
+      background: var(--cyan)
+    }
+
+    .about-title {
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      margin-bottom: 20px;
+    }
+
+    .section-head {
+      max-width: 640px;
+      margin-bottom: 56px
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+      margin-bottom: 14px
+    }
+
+    .section-head p {
+      color: var(--text-1);
+      font-size: 1.02rem
+    }
+
+    .section-pad {
+      padding: 110px 0
+    }
+
+    @media(max-width:720px) {
+      .section-pad {
+        padding: 72px 0
+      }
+    }
+
+    /* ---------- reveal ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .8s var(--ease), transform .8s var(--ease)
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .reveal-stagger.visible>* {
+      transition-delay: calc(var(--i, 0) * 90ms)
+    }
+
+    /* ---------- buttons ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 26px;
+      border-radius: 10px;
+      font-family: var(--ff-mono);
+      font-size: .82rem;
+      letter-spacing: .03em;
+      font-weight: 500;
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease), border-color .35s var(--ease);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cyan), var(--teal));
+      color: #04121A;
+      font-weight: 600;
+      box-shadow: 0 0 0 0 rgba(34, 211, 238, .5);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px -6px rgba(34, 211, 238, .55)
+    }
+
+    .btn-ghost {
+      border: 1px solid var(--line);
+      color: var(--text-0)
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--cyan);
+      background: var(--cyan-soft);
+      transform: translateY(-2px)
+    }
+
+    .btn svg {
+      width: 16px;
+      height: 16px;
+      transition: transform .3s var(--ease)
+    }
+
+    .btn:hover svg {
+      transform: translateX(3px)
+    }
+
+    /* ---------- header ---------- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      transition: background .4s var(--ease), padding .4s var(--ease), border-color .4s var(--ease);
+      border-bottom: 1px solid transparent;
+    }
+
+    header.scrolled {
+      background: rgba(6, 11, 28, .82);
+      backdrop-filter: blur(14px);
+      padding: 14px 0;
+      border-color: var(--line);
+    }
+
+    header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--ff-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -.01em
+    }
+
+    .logo .mark {
+      width: 34px;
+      height: 34px
+    }
+
+    .logo .gold {
+      color: var(--gold)
+    }
+
+    nav.primary-nav {
+      display: flex;
+      align-items: center;
+      gap: 36px
+    }
+
+    nav.primary-nav a {
+      font-size: .88rem;
+      color: var(--text-1);
+      transition: color .25s;
+      position: relative
+    }
+
+    nav.primary-nav a:not(.btn)::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 1px;
+      background: var(--cyan);
+      transition: width .3s var(--ease)
+    }
+
+    nav.primary-nav a:not(.btn):hover {
+      color: var(--text-0)
+    }
+
+    nav.primary-nav a:not(.btn):hover::after {
+      width: 100%
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      padding: 14px 9px;
+      box-sizing: border-box;
+      z-index: 110
+    }
+
+    .nav-toggle span {
+      height: 2px;
+      background: var(--text-0);
+      border-radius: 2px;
+      transition: transform .3s, opacity .3s
+    }
+
+    @media(max-width:920px) {
+
+      /* 1. Transparent overlay (No dimming, but keeps click-to-close functionality) */
+      .nav-overlay {
+        position: fixed;
+        inset: 0;
+        background: transparent;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 95;
+      }
+
+      .nav-overlay.active {
+        visibility: visible;
+      }
+
+      /* 2. Responsive Sidebar */
+      nav.primary-nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 300px;
+        max-width: 85vw;
+        height: 100vh;
+        background: var(--bg-1);
+        border-left: 1px solid var(--line);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 26px;
+        padding: 110px 40px;
+        transform: translateX(100%);
+        transition: transform .35s var(--ease);
+        z-index: 100;
+        /* Adds a subtle shadow so the menu pops since the screen isn't dimming anymore */
+        box-shadow: -15px 0 40px rgba(0, 0, 0, 0.1);
+      }
+
+      nav.primary-nav.open {
+        transform: translateX(0);
+      }
+
+      nav.primary-nav a {
+        width: 100%;
+      }
+
+      /* 3. Hamburger Toggle */
+      .nav-toggle {
+        display: flex;
+        z-index: 110;
+      }
+
+      /* 4. Menu Open Animation States */
+      body.menu-open {
+        overflow: hidden;
+        touch-action: none;
+      }
+
+      body.menu-open .nav-toggle span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      body.menu-open .nav-toggle span:nth-child(2) {
+        opacity: 0;
+      }
+
+      body.menu-open .nav-toggle span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+    }
+
+    /* ---------- gold badge ---------- */
+    .gold-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 16px 8px 10px;
+      border-radius: 100px;
+      background: var(--gold-soft);
+      border: 1px solid rgba(242, 180, 65, .4);
+      font-family: var(--ff-mono);
+      font-size: .74rem;
+      letter-spacing: .06em;
+      color: var(--gold);
+    }
+
+    .gold-badge .dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: conic-gradient(from 180deg, #F2B441, #FFE3A3, #F2B441);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: none
+    }
+
+    .gold-badge .dot svg {
+      width: 11px;
+      height: 11px;
+      color: #3A2604
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      padding: 168px 0 90px;
+      position: relative;
+      overflow: hidden
+    }
+
+    .hero .wrap {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 60px;
+      align-items: center
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.9rem);
+      line-height: 1.05;
+      margin: 20px 0 22px
+    }
+
+    .hero h1 .accent {
+      background: linear-gradient(90deg, var(--cyan), var(--teal));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent
+    }
+
+    .hero p.lead {
+      color: var(--text-1);
+      font-size: 1.08rem;
+      max-width: 520px;
+      margin-bottom: 34px
+    }
+
+    .hero-inline-svg {
+      height: 0.85em;
+      width: auto;
+      display: inline-block;
+      vertical-align: -0.05em;
+      margin: 0 4px;
+    }
+
+    .hero .cta-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 52px
+    }
+
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      gap: 38px
+    }
+
+    .stat-strip .stat b {
+      display: block;
+      font-family: var(--ff-display);
+      font-size: 1.7rem;
+      color: var(--text-0)
+    }
+
+    .stat-strip .stat span {
+      font-family: var(--ff-mono);
+      font-size: .68rem;
+      letter-spacing: .06em;
+      color: var(--text-2);
+      text-transform: uppercase
+    }
+
+    @media(max-width:620px) {
+      .stat-strip {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 22px
+      }
+    }
+
+    /* orbit diagram */
+    .orbit-wrap {
+      position: relative;
+      aspect-ratio: 1/1;
+      max-width: 480px;
+      margin: 0 auto
+    }
+
+    .orbit-wrap svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible
+    }
+
+    .orbit-node {
+      fill: var(--bg-1);
+      stroke: var(--line);
+      stroke-width: 1
+    }
+
+    .orbit-node.core {
+      fill: url(#coreGrad)
+    }
+
+    .orbit-label {
+      font-family: var(--ff-mono);
+      font-size: 9.5px;
+      fill: var(--text-1);
+      text-anchor: middle
+    }
+
+    .orbit-core-label {
+      font-family: var(--ff-display);
+      font-size: 13px;
+      fill: #04121A;
+      font-weight: 700;
+      text-anchor: middle
+    }
+
+    .orbit-line {
+      fill: none;
+      stroke: var(--line);
+      stroke-width: 1.4
+    }
+
+    .orbit-flow {
+      fill: none;
+      stroke: var(--cyan);
+      stroke-width: 1.6;
+      stroke-dasharray: 6 10;
+      animation: flow 3.2s linear infinite
+    }
+
+    @keyframes flow {
+      to {
+        stroke-dashoffset: -160
+      }
+    }
+
+    .orbit-ring {
+      fill: none;
+      stroke: var(--line);
+      stroke-dasharray: 2 6
+    }
+
+    @media(max-width:920px) {
+      .hero .wrap {
+        grid-template-columns: 1fr;
+        text-align: left
+      }
+
+      .orbit-wrap {
+        max-width: 360px;
+        margin-top: 10px
+      }
+    }
+
+    /* ---------- gold strip marquee ---------- */
+    .partner-strip {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--bg-1);
+      padding: 16px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee {
+      display: flex;
+      gap: 56px;
+      width: max-content;
+      animation: marquee 26s linear infinite
+    }
+
+    .marquee span {
+      font-family: var(--ff-mono);
+      font-size: .78rem;
+      letter-spacing: .08em;
+      color: var(--text-1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-transform: uppercase;
+    }
+
+    .marquee span b {
+      color: var(--gold);
+      font-weight: 600
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    /* ---------- cards grid generic ---------- */
+    .grid {
+      display: grid;
+      gap: 22px
+    }
+
+    .grid.cols-5 {
+      grid-template-columns: repeat(5, 1fr)
+    }
+
+    .grid.cols-4 {
+      grid-template-columns: repeat(4, 1fr)
+    }
+
+    .grid.cols-3 {
+      grid-template-columns: repeat(3, 1fr)
+    }
+
+    .grid.cols-2 {
+      grid-template-columns: repeat(2, 1fr)
+    }
+
+    @media(max-width:1080px) {
+      .grid.cols-5 {
+        grid-template-columns: repeat(3, 1fr)
+      }
+
+      .grid.cols-4 {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media(max-width:720px) {
+
+      .grid.cols-5,
+      .grid.cols-4,
+      .grid.cols-3,
+      .grid.cols-2 {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .card {
+      background: linear-gradient(180deg, var(--bg-1), var(--bg-0));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: transform .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease);
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(34, 211, 238, .45);
+      box-shadow: 0 20px 40px -20px rgba(0, 0, 0, .6)
+    }
+
+    .card .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--cyan-soft);
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      transition: background .3s, color .3s, transform .4s var(--ease);
+    }
+
+    .card:hover .icon {
+      background: var(--cyan);
+      color: #04121A;
+      transform: rotate(-6deg) scale(1.05)
+    }
+
+    .card .icon svg {
+      width: 22px;
+      height: 22px
+    }
+
+    .card h3 {
+      font-size: 1.06rem;
+      margin-bottom: 8px
+    }
+
+    .card p {
+      color: var(--text-1);
+      font-size: .92rem
+    }
+
+    .card .num {
+      position: absolute;
+      top: 20px;
+      right: 22px;
+      font-family: var(--ff-mono);
+      font-size: .72rem;
+      color: var(--text-2);
+    }
+
+    /* ---------- what we do band ---------- */
+    .band-dark {
+      background: var(--bg-1);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line)
+    }
+
+    /* ---------- ABOUT ---------- */
+
+    .about .wrap {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-copy {
+      width: 100%;
+    }
+
+    .about-copy h2 {
+      line-height: 1.2;
+    }
+
+    .about-copy p {
+      color: var(--text-1);
+      margin-bottom: 18px;
+    }
+
+    .value-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .value-pill {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-size: .72rem;
+      font-family: var(--ff-mono);
+      white-space: nowrap;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .stat-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      background: linear-gradient(160deg,
+          rgba(34, 211, 238, .06),
+          transparent 60%);
+    }
+
+    .stat-card b {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .stat-card span {
+      display: block;
+      line-height: 1.5;
+    }
+
+    /* ---------- Tablet ---------- */
+
+    @media (max-width:992px) {
+
+      .about .wrap {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .about-copy {
+        text-align: left;
+      }
+
+    }
+
+    /* ---------- Mobile ---------- */
+
+    @media (max-width:768px) {
+
+      .about {
+        overflow: hidden;
+      }
+
+      .about .wrap {
+        gap: 36px;
+      }
+
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-card {
+        padding: 24px;
+      }
+
+      .value-row {
+        gap: 10px;
+      }
+
+    }
+
+    /* ---------- Small Phones ---------- */
+
+    @media (max-width:480px) {
+
+      .about-copy h2 {
+        font-size: 1.8rem !important;
+      }
+
+      .stat-card {
+        padding: 20px;
+      }
+
+      .stat-card b {
+        font-size: 1.8rem;
+      }
+
+      .value-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .value-pill {
+        width: 100%;
+        text-align: center;
+      }
+
+    }
+
+    /* ---------- platforms ---------- */
+    .platform-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .platform-card.flagship {
+      border-color: rgba(242, 180, 65, .5);
+      background: linear-gradient(160deg, rgba(242, 180, 65, .08), var(--bg-1) 60%);
+    }
+
+    .platform-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .platform-top h3 {
+      font-size: 1.2rem
+    }
+
+    .seal {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      flex: none;
+      background: conic-gradient(from 180deg, #F2B441, #FFE3A3, #F2B441);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: spin 10s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .seal::after {
+      content: '';
+      position: absolute;
+      inset: 5px;
+      border-radius: 50%;
+      background: var(--bg-1);
+      animation: spin 10s linear infinite reverse
+    }
+
+    .seal svg {
+      width: 20px;
+      height: 20px;
+      color: var(--gold);
+      position: relative;
+      z-index: 1
+    }
+
+    .platform-card p {
+      color: var(--text-1);
+      font-size: .92rem
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px
+    }
+
+    .chip {
+      font-family: var(--ff-mono);
+      font-size: .76rem;
+      color: var(--text-1);
+      border: 1px solid var(--line);
+      padding: 8px 15px;
+      border-radius: 100px;
+      transition: border-color .3s, color .3s, background .3s;
+    }
+
+    .chip:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      background: var(--cyan-soft)
+    }
+
+    /* ---------- methodology timeline ---------- */
+    .timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+      margin-top: 20px
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 23px;
+      left: 5%;
+      right: 5%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--line) 8%, var(--line) 92%, transparent);
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      top: 23px;
+      left: 5%;
+      width: 90%;
+      height: 1px;
+      background: repeating-linear-gradient(90deg, var(--cyan) 0 8px, transparent 8px 16px);
+      animation: flow 2.4s linear infinite;
+      opacity: .7;
+    }
+
+    .t-step {
+      position: relative;
+      text-align: left
+    }
+
+    .t-step .idx {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--bg-1);
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--ff-mono);
+      color: var(--cyan);
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+      font-size: .85rem;
+      transition: border-color .3s, background .3s, color .3s;
+    }
+
+    .t-step:hover .idx {
+      background: var(--cyan);
+      color: #04121A;
+      border-color: var(--cyan)
+    }
+
+    .t-step h4 {
+      font-size: .98rem;
+      margin-bottom: 6px
+    }
+
+    .t-step p {
+      font-size: .82rem;
+      color: var(--text-1)
+    }
+
+    @media(max-width:920px) {
+      .timeline {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .timeline::before,
+      .timeline::after {
+        display: none
+      }
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 44px
+    }
+
+    .tag {
+      font-family: var(--ff-mono);
+      font-size: .74rem;
+      color: var(--teal);
+      border: 1px solid rgba(14, 165, 183, .4);
+      background: rgba(14, 165, 183, .08);
+      padding: 8px 14px;
+      border-radius: 8px
+    }
+
+    /* ---------- industries ---------- */
+    .industry-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      transition: border-color .3s, transform .3s var(--ease)
+    }
+
+    .industry-card:hover {
+      border-color: rgba(34, 211, 238, .4);
+      transform: translateY(-4px)
+    }
+
+    .industry-card .icon {
+      width: 42px;
+      height: 42px;
+      flex: none
+    }
+
+    /* ---------- engagement ---------- */
+    .engage-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px
+    }
+
+    .engage-card.mid {
+      border-color: rgba(34, 211, 238, .4);
+      background: linear-gradient(160deg, var(--cyan-soft), transparent 70%)
+    }
+
+    .engage-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 18px;
+      font-family: var(--ff-mono);
+      letter-spacing: .02em;
+      color: var(--cyan)
+    }
+
+    .engage-card ul li {
+      padding: 9px 0;
+      border-top: 1px solid var(--line);
+      color: var(--text-1);
+      font-size: .92rem;
+      display: flex;
+      gap: 10px;
+      align-items: center
+    }
+
+    .engage-card ul li:first-child {
+      border-top: none
+    }
+
+    .engage-card ul li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      flex: none
+    }
+
+    /* ---------- testimonials ---------- */
+    .quote-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+      background: var(--bg-1);
+      position: relative
+    }
+
+    .quote-card svg.qmark {
+      width: 30px;
+      height: 30px;
+      color: var(--cyan);
+      margin-bottom: 16px
+    }
+
+    .quote-card p.quote {
+      color: var(--text-0);
+      font-size: 1rem;
+      font-style: italic;
+      margin-bottom: 22px;
+      line-height: 1.65
+    }
+
+    .quote-card .who b {
+      display: block;
+      font-size: .92rem
+    }
+
+    .quote-card .who span {
+      font-family: var(--ff-mono);
+      font-size: .76rem;
+      color: var(--cyan)
+    }
+
+    /* ---------- cta ---------- */
+    .cta-band {
+      margin: 0 auto;
+      max-width: var(--maxw);
+      border-radius: 24px;
+      padding: 70px 60px;
+      background: linear-gradient(135deg, var(--bg-2), var(--bg-0) 70%);
+      border: 1px solid var(--line);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-band::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(34, 211, 238, .18), transparent 70%);
+      top: -250px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .cta-band h2 {
+      font-size: clamp(1.8rem, 3.6vw, 2.7rem);
+      margin-bottom: 16px;
+      position: relative
+    }
+
+    .cta-band p {
+      color: var(--text-1);
+      margin-bottom: 32px;
+      position: relative
+    }
+
+    .cta-band .cta-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative
+    }
+
+    @media(max-width:600px) {
+      .cta-band {
+        padding: 50px 24px
+      }
+    }
+
+    /* ---------- footer ---------- */
+    footer {
+      padding: 70px 0 30px;
+      border-top: 1px solid var(--line);
+      margin-top: 60px
+    }
+
+    .foot-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 50px
+    }
+
+    .foot-grid h4 {
+      font-family: var(--ff-mono);
+      font-size: .76rem;
+      letter-spacing: .08em;
+      color: var(--text-2);
+      text-transform: uppercase;
+      margin-bottom: 18px
+    }
+
+    .foot-grid li {
+      margin-bottom: 11px
+    }
+
+    .foot-grid a {
+      color: var(--text-1);
+      font-size: .92rem;
+      transition: color .25s
+    }
+
+    .foot-grid a:hover {
+      color: var(--cyan)
+    }
+
+    .foot-brand p {
+      color: var(--text-1);
+      font-size: .92rem;
+      max-width: 280px;
+      margin-top: 14px
+    }
+
+    .foot-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      flex-wrap: wrap;
+      gap: 14px
+    }
+
+    .foot-bottom span {
+      color: var(--text-2);
+      font-size: .82rem;
+      font-family: var(--ff-mono)
+    }
+
+    @media(max-width:820px) {
+      .foot-grid {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    ::selection {
+      background: var(--cyan);
+      color: #04121A
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+        scroll-behavior: auto !important
+      }
+    }
+
+    /* ---------- Responsive Improvements ---------- */
+
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    .wrap {
+      width: 100%;
+    }
+
+    img,
+    svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .hero {
+      overflow: hidden;
+    }
+
+    .hero .wrap {
+      align-items: center;
+    }
+
+    @media (max-width:1200px) {
+
+      .wrap {
+        padding-inline: 24px;
+      }
+
+    }
+
+    @media (max-width:992px) {
+
+      .hero .wrap,
+      .about .wrap {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .orbit-wrap {
+        max-width: 380px;
+      }
+
+      .foot-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
+    @media (max-width:768px) {
+
+      .wrap {
+        padding-inline: 20px;
+      }
+
+      .hero {
+        padding-top: 140px;
+      }
+
+      .cta-row {
+        width: 100%;
+      }
+
+      .cta-row .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .stat-strip {
+        gap: 25px;
+      }
+
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    @media (max-width:480px) {
+
+      .wrap {
+        padding-inline: 16px;
+      }
+
+      h1 {
+        line-height: 1.15;
+      }
+
+      .section-head {
+        margin-bottom: 40px;
+      }
+
+      .card,
+      .platform-card,
+      .quote-card,
+      .engage-card,
+      .stat-card {
+        padding: 22px;
+      }
+
+      .cta-band {
+        padding: 45px 20px;
+      }
+
+      .foot-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    /* --- LIGHT THEME OVERRIDES --- */
+    [data-theme="light"] {
+      /* Base light palette */
+      --bg-0: #F8FAFC;
+      --bg-1: #FFFFFF;
+      --bg-2: #F1F5F9;
+      --line: #E2E8F0;
+      --cyan: #0284C7;
+      --cyan-soft: rgba(2, 132, 199, 0.1);
+      --teal: #0369A1;
+      --gold: #D97706;
+      --gold-soft: rgba(217, 119, 6, 0.1);
+      --text-0: #0F172A;
+      --text-1: #475569;
+      --text-2: #64748B;
+    }
+
+    /* 1. SELECTIVE DARK SECTIONS */
+    /* Trap the dark variables inside these specific containers */
+    [data-theme="light"] .band-dark,
+    [data-theme="light"] .cta-band,
+    [data-theme="light"] footer {
+      --bg-0: #060B1C;
+      --bg-1: #0B1530;
+      --bg-2: #101E42;
+      --line: #1D2C54;
+      --text-0: #EDF2FB;
+      --text-1: #AEBAD9;
+      --text-2: #7E8CB0;
+      /* Revert accents to bright versions for dark backgrounds */
+      --cyan: #22D3EE;
+      --cyan-soft: rgba(34, 211, 238, .14);
+      --teal: #0EA5B7;
+    }
+
+    /* Ensure the containers actually use their respective background variables */
+    [data-theme="light"] .band-dark {
+      background-color: var(--bg-1);
+    }
+
+    [data-theme="light"] footer {
+      background-color: var(--bg-0);
+    }
+
+    [data-theme="light"] .cta-band {
+      background: linear-gradient(135deg, var(--bg-2), var(--bg-0) 70%);
+    }
+
+    /* 2. HEADER & UI EXCEPTION FIXES */
+    [data-theme="light"] header.scrolled {
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    [data-theme="light"] .btn-primary {
+      color: #FFFFFF;
+    }
+
+    [data-theme="light"] .card:hover .icon,
+    [data-theme="light"] .t-step:hover .idx {
+      color: #FFFFFF;
+    }
+
+    [data-theme="light"] ::selection {
+      color: #FFFFFF;
+    }
+
+    [data-theme="light"] .orbit-core-label {
+      fill: #FFFFFF;
+    }
+
+    [data-theme="light"] .mark path {
+      stroke: var(--cyan);
+    }
+
+    /* 3. MOBILE NAV RESPOSIVENESS & DIMMING FIX */
+    /* Swap the muddy black dim for a clean frosted glass effect */
+    [data-theme="light"] .nav-overlay {
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    @media(max-width: 920px) {
+
+      /* Add a soft shadow to the drawer so it pops cleanly off the blurred background */
+      [data-theme="light"] nav.primary-nav {
+        box-shadow: -15px 0 40px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Ensure the hamburger toggle icon switches to a dark color in light mode */
+      [data-theme="light"] .nav-toggle span {
+        background: var(--text-0);
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="siteHeader">
+    <div class="wrap">
+      <a href="#home" class="logo">
+        <img src="image.png" width="100" height="50" alt="" srcset="">
+        <span style="font-size: 1.5rem; font-weight: bold;">ZIVOIT</span>
+      </a>
+      <nav class="primary-nav" id="primaryNav">
+        <a href="#services">Services</a>
+        <a href="#platforms">Platforms</a>
+        <a href="#methodology">Process</a>
+        <a href="#industries">Industries</a>
+        <a href="#testimonials">Clients</a>
+        <a href="#contact" class="btn btn-primary" style="color: #04121A;">Get a Consultation</a>
+        <button id="themeToggle" class="btn btn-ghost" style="padding: 10px; margin: auto;" aria-label="Toggle theme">
+          <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            style="width: 16px; height: 16px; margin: 0; transform: none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </nav>
+      <button class="nav-toggle" id="navToggle"
+        aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <main id="home">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-copy reveal">
+          <span class="gold-badge">
+            <span class="dot"><svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.2 21 12 17.4 5.8 21 7 14.14l-5-4.87 7.1-1.01z" />
+              </svg></span>
+            Certified Odoo Gold Partner
+          </span>
+          <h1>Transform your business with <img src="odoo_logo.png" alt="Odoo" class="hero-inline-svg">, engineered
+            for scale.</h1>
+          <p class="lead">ZIVO IT is a Gold-tier Odoo implementation partner helping enterprises unify operations,
+            automate processes, and accelerate growth — precision engineering meets strategic advisory.</p>
+          <div class="cta-row">
+            <a href="#services" class="btn btn-primary">Our Services <svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg></a>
+            <a href="#contact" class="btn btn-ghost">Talk to an Expert</a>
+          </div>
+          <div class="stat-strip">
+            <div class="stat"><b data-count="12" data-suffix="+">0</b><span>Years Expertise</span></div>
+            <div class="stat"><b data-count="50" data-suffix="+">0</b><span>Global Clients</span></div>
+            <div class="stat"><b data-count="20" data-suffix="+">0</b><span>Industries</span></div>
+            <div class="stat"><b data-count="98" data-suffix="%">0</b><span>Retention Rate</span></div>
+          </div>
+        </div>
+
+        <div class="orbit-wrap reveal" style="transition-delay:.15s">
+          <svg viewBox="0 0 400 400" aria-hidden="true">
+            <defs>
+              <linearGradient id="coreGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#22D3EE" />
+                <stop offset="1" stop-color="#0EA5B7" />
+              </linearGradient>
+            </defs>
+            <circle class="orbit-ring" cx="200" cy="200" r="160" />
+            <circle class="orbit-ring" cx="200" cy="200" r="110" />
+            <g id="spokes"></g>
+            <circle class="orbit-node core" cx="200" cy="200" r="46" />
+            <text class="orbit-core-label" x="200" y="197">ZIVO</text>
+            <text class="orbit-core-label" x="200" y="212" style="font-size:9px">ERP CORE</text>
+            <g id="nodes"></g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNER MARQUEE -->
+    <div class="partner-strip">
+      <div class="marquee" id="marquee"></div>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="section-pad band-dark" id="services">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">What We Do</span>
+          <h2>End‑to‑end Odoo solutions</h2>
+          <p>From first blueprint to long-term hypercare, we cover every layer of your Odoo journey.</p>
+        </div>
+        <div class="grid cols-5 reveal-stagger" id="servicesGrid"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section-pad about" id="about">
+      <div class="wrap">
+        <div class="about-copy reveal">
+          <span class="eyebrow">Who We Are</span>
+          <h2 class="about-title">Simplifying operations. Amplifying growth.
+          </h2>
+          <p>ZIVO IT is a forward-thinking technology solutions company dedicated to transforming how businesses operate
+            through intelligent ERP implementations and digital automation.</p>
+          <p>With 12+ years of expertise and 50+ clients across industries, we bring precision, agility, and measurable
+            results — ensuring ERP is not just deployed, but truly adopted.</p>
+          <div class="value-row">
+            <span class="value-pill">Innovation‑Led</span>
+            <span class="value-pill">Client‑First</span>
+            <span class="value-pill">Results‑Driven</span>
+          </div>
+        </div>
+        <div class="about-stats reveal" style="transition-delay:.1s">
+          <div class="stat-card"><b>12+</b><span>Years of ERP Expertise</span></div>
+          <div class="stat-card"><b>50+</b><span>Clients Served</span></div>
+          <div class="stat-card"><b>20+</b><span>Industries Transformed</span></div>
+          <div class="stat-card"><b>98%</b><span>Client Retention</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLATFORMS -->
+    <section class="section-pad band-dark" id="platforms">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Platform Expertise</span>
+          <h2>ERP platforms we master</h2>
+          <p>Deepest bench strength in Odoo, with full Gold Partner certification — plus functional coverage across SAP
+            and Microsoft Dynamics.</p>
+        </div>
+        <div class="grid cols-3 reveal-stagger" id="platformGrid"></div>
+        <div class="chips" id="moduleChips"></div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section-pad" id="why">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Our Advantage</span>
+          <h2>Why teams choose ZIVO IT</h2>
+        </div>
+        <div class="grid cols-3 reveal-stagger" id="whyGrid"></div>
+      </div>
+    </section>
+
+    <!-- METHODOLOGY -->
+    <section class="section-pad band-dark" id="methodology">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Our Approach</span>
+          <h2>The deployment protocol</h2>
+          <p>A structured, six-stage methodology that takes you from discovery to durable go-live support.</p>
+        </div>
+        <div class="timeline reveal-stagger" id="timelineGrid"></div>
+        <div class="tag-row">
+          <span class="tag">Agile Sprint Delivery</span>
+          <span class="tag">Daily Standups &amp; Weekly Demos</span>
+          <span class="tag">Dedicated Project Manager</span>
+          <span class="tag">Post Go-Live Hypercare</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDUSTRIES -->
+    <section class="section-pad" id="industries">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Domain Expertise</span>
+          <h2>Industries we transform</h2>
+        </div>
+        <div class="grid cols-3 reveal-stagger" id="industryGrid"></div>
+      </div>
+    </section>
+
+    <!-- ENGAGEMENT MODELS -->
+    <section class="section-pad band-dark" id="engagement">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">How We Work With You</span>
+          <h2>Flexible engagement models</h2>
+        </div>
+        <div class="grid cols-3 reveal-stagger" id="engageGrid"></div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section-pad" id="testimonials">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Client Voices</span>
+          <h2>What our clients say</h2>
+        </div>
+        <div class="grid cols-3 reveal-stagger" id="quoteGrid"></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-pad" id="contact">
+      <div class="wrap">
+        <div class="cta-band reveal">
+          <h2>Let's build something transformative.</h2>
+          <p>Ready to elevate your business? We'd love to explore the possibilities together.</p>
+          <div class="cta-row">
+            <a href="mailto:info@zivoit.com" class="btn btn-primary">Free Consultation <svg viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg></a>
+            <a href="tel:+918008208081" class="btn btn-ghost">Make a Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a href="#home" class="logo">
+            <img src="image.png" width="100" height="50" alt="" srcset="">
+            <span style="font-size: 1.5rem; font-weight: bold;">ZIVOIT</span>
+          </a>
+          <p>Where technology meets business transformation. Certified Odoo Gold Partner headquartered in Hyderabad,
+            India.</p>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#industries">Industries</a></li>
+            <li><a href="#testimonials">Clients</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:info@zivoit.com">info@zivoit.com</a></li>
+            <li><a href="tel:+918008208081">+91 8008208081</a></li>
+            <li><a href="https://www.zivoit.com">www.zivoit.com</a></li>
+            <li><a href="#">Hyderabad, India</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 ZIVO IT. Precision in Digital Transformation.</span>
+        <span>Certified Odoo Gold Partner</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      /* ---------------- content data ---------------- */
+      const icons = {
+        box: '<path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/>',
+        sliders: '<path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3"/><circle cx="4" cy="13" r="2"/><circle cx="12" cy="9" r="2"/><circle cx="20" cy="13" r="2"/>',
+        link: '<path d="M10 13a5 5 0 0 0 7.07 0l1.41-1.41a5 5 0 0 0-7.07-7.07L10 5.88"/><path d="M14 11a5 5 0 0 0-7.07 0L5.52 12.4a5 5 0 0 0 7.07 7.07L14 18.12"/>',
+        headset: '<path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>',
+        compass: '<circle cx="12" cy="12" r="10"/><path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36z"/>',
+        trophy: '<path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4z"/><path d="M17 5h3a3 3 0 0 1-3 5M7 5H4a3 3 0 0 0 3 5"/>',
+        users: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+        zap: '<path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/>',
+        shield: '<path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/>',
+        bar: '<path d="M4 20V10M12 20V4M20 20v-6"/>',
+        handshake: '<path d="M8 12l3 3 6-6"/><path d="M2 12l4-4 4 2 4-4 4 2 4-4"/><path d="M2 12v6l4 2M22 12v6l-4 2"/>',
+        factory: '<path d="M3 21V10l6 4v-4l6 4V7l6 4v10H3z"/>',
+        heart: '<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/><path d="M8 12h2l1.5-3L13 15l1.5-3H16"/>',
+        cart: '<circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2 3h2l2.6 12.6a2 2 0 0 0 2 1.4h8.8a2 2 0 0 0 2-1.6L21 8H6"/>',
+        truck: '<path d="M2 8h11v8H2zM13 11h4l3 3v2h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>',
+        building: '<path d="M4 21V4h9v17M13 21h7V10h-7"/><path d="M7 8h1M7 12h1M7 16h1M17 13h1M17 17h1"/>',
+        grad: '<path d="M2 8l10-5 10 5-10 5-10-5z"/><path d="M6 10.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-5.5"/>',
+        dollar: '<circle cx="12" cy="12" r="9"/><path d="M12 7v10M15 9.5c0-1.4-1.4-2.5-3-2.5s-3 1-3 2.3c0 1.5 1.4 2 3 2.3s3 .8 3 2.4c0 1.3-1.3 2.5-3 2.5s-3-1.1-3-2.5"/>',
+        tag: '<path d="M20.6 12.6L12.4 20.8a2 2 0 0 1-2.8 0l-7-7a2 2 0 0 1 0-2.8L10.8 2.8 20.6 3z"/><circle cx="15.5" cy="7.5" r="1.5"/>'
+      };
+      const svgIcon = n => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${icons[n]}</svg>`;
+
+      const services = [
+        { icon: 'box', t: 'Odoo Implementation', d: 'Seamless implementation tailored to your unique business needs and processes.' },
+        { icon: 'sliders', t: 'Odoo Customization', d: 'Custom modules and workflows engineered to fit exactly how you operate.' },
+        { icon: 'link', t: 'Odoo Integration', d: 'Integrate Odoo with your existing tools, APIs and third-party applications.' },
+        { icon: 'headset', t: 'Odoo Support', d: 'Continuous support and maintenance to keep your business running smoothly.' },
+        { icon: 'compass', t: 'Odoo Consulting', d: 'Expert guidance to help you make the right decisions and scale faster.' }
+      ];
+
+      const platforms = [
+        { flag: true, t: 'Odoo', tag: 'Gold Certified Partner', d: 'Our flagship specialty — Sales, Inventory, Manufacturing, Accounting, HR, CRM & custom modules.' },
+        { flag: false, t: 'SAP', tag: 'Business One · S/4HANA', d: 'Configuration, integration and support for mid-market enterprises.' },
+        { flag: false, t: 'Microsoft Dynamics', tag: 'Business Central · Finance', d: 'Dynamics 365 implementation with full Microsoft ecosystem integration.' }
+      ];
+
+      const modules = ['Sales', 'CRM', 'Inventory', 'Manufacturing', 'Accounting', 'HR & Payroll', 'Purchase', 'POS', 'eCommerce', 'Project', 'Field Service', 'Helpdesk'];
+
+      const whyUs = [
+        { icon: 'trophy', t: 'Proven Expertise', d: '12+ years of hands-on ERP implementation across 20+ industry verticals.' },
+        { icon: 'users', t: 'Client-Centric Delivery', d: 'We become an extension of your team — goals first, solutions second.' },
+        { icon: 'zap', t: 'Rapid Time-to-Value', d: 'Structured methodology ensures faster go-live with zero disruption.' },
+        { icon: 'shield', t: 'Risk-Free Engagement', d: 'Transparent pricing, clear milestones, dedicated project governance.' },
+        { icon: 'bar', t: 'Measurable ROI', d: 'Every solution targets cost savings, efficiency gains and revenue growth.' },
+        { icon: 'handshake', t: 'Long-Term Partnership', d: 'Continuous support, upgrades and optimization — always by your side.' }
+      ];
+
+      const methodology = [
+        { t: 'Discover', d: 'Business process study & GAP analysis.' },
+        { t: 'Design', d: 'Solution blueprint & architecture.' },
+        { t: 'Build', d: 'Configuration, development & integrations.' },
+        { t: 'Validate', d: 'Testing, UAT & performance review.' },
+        { t: 'Go-Live', d: 'Data migration & production deploy.' },
+        { t: 'Support', d: 'Hypercare, optimize & long-term roadmap.' }
+      ];
+
+      const industries = [
+        { icon: 'factory', t: 'Manufacturing', d: 'Production planning, BoM, quality control & shop floor visibility.' },
+        { icon: 'heart', t: 'Healthcare & Pharma', d: 'Compliance, batch tracking, FEFO and patient data management.' },
+        { icon: 'cart', t: 'Retail & eCommerce', d: 'POS, inventory sync and seamless online-offline integration.' },
+        { icon: 'truck', t: 'Logistics & Supply Chain', d: 'Fleet management, route optimization, warehouse automation.' },
+        { icon: 'building', t: 'Real Estate & Construction', d: 'Project scheduling, asset tracking and property management.' },
+        { icon: 'grad', t: 'Education', d: 'Student systems, administrative workflows and fee management.' }
+      ];
+
+      const engagement = [
+        { t: 'Pricing Options', items: ['Fixed Cost', 'Time & Material', 'Outcome-Based', 'Pay-per-Use'] },
+        { t: 'Engagement Options', items: ['Strategic Partner', 'Preferred Vendor', 'Project-Based', 'Vendor'], mid: true },
+        { t: 'Partnership Models', items: ['Managed Services', 'Co-Managed', 'Staff Augmentation'] }
+      ];
+
+      const quotes = [
+        { q: 'ZIVO IT didn`t just implement our ERP — they transformed how we operate. Real-time visibility replaced guesswork, and our team genuinely loves using the system.', who: 'Operations Director', role: 'Manufacturing Enterprise' },
+        { q: 'From go-live to ongoing support, ZIVO IT has been a true partner. Their automation work alone saved us dozens of manual hours every single week.', who: 'CEO', role: 'Retail Chain' },
+        { q: 'Their domain knowledge was remarkable. They understood our compliance requirements from day one and delivered an inspection-ready system from launch.', who: 'IT Head', role: 'Pharmaceutical Company' }
+      ];
+
+      /* ---------------- render helpers ---------------- */
+      const el = (html) => { const t = document.createElement('template'); t.innerHTML = html.trim(); return t.content; };
+
+      document.getElementById('servicesGrid').append(el(services.map((s, i) => `
+    <div class="card" style="--i:${i}">
+      <div class="icon">${svgIcon(s.icon)}</div>
+      <h3>${s.t}</h3><p>${s.d}</p>
+    </div>`).join('')));
+
+      document.getElementById('platformGrid').append(el(platforms.map((p, i) => `
+    <div class="platform-card ${p.flag ? 'flagship' : ''}" style="--i:${i}">
+      <div class="platform-top">
+        <div><h3>${p.t}</h3><span style="font-family:var(--ff-mono);font-size:.72rem;color:${p.flag ? 'var(--gold)' : 'var(--text-2)'}">${p.tag}</span></div>
+        ${p.flag ? `<div class="seal">${svgIcon('trophy')}</div>` : ''}
+      </div>
+      <p>${p.d}</p>
+    </div>`).join('')));
+
+      document.getElementById('moduleChips').append(el(modules.map(m => `<span class="chip">${m}</span>`).join('')));
+
+      document.getElementById('whyGrid').append(el(whyUs.map((w, i) => `
+    <div class="card" style="--i:${i}"><div class="icon">${svgIcon(w.icon)}</div><h3>${w.t}</h3><p>${w.d}</p></div>`).join('')));
+
+      document.getElementById('timelineGrid').append(el(methodology.map((m, i) => `
+    <div class="t-step" style="--i:${i}"><div class="idx">0${i + 1}</div><h4>${m.t}</h4><p>${m.d}</p></div>`).join('')));
+
+      document.getElementById('industryGrid').append(el(industries.map((ind, i) => `
+    <div class="industry-card reveal" style="--i:${i}">
+      <div class="icon" style="background:var(--cyan-soft);color:var(--cyan);border-radius:10px;display:flex;align-items:center;justify-content:center">${svgIcon(ind.icon)}</div>
+      <div><h3 style="font-size:1rem;margin-bottom:6px">${ind.t}</h3><p style="color:var(--text-1);font-size:.88rem">${ind.d}</p></div>
+    </div>`).join('')));
+
+      document.getElementById('engageGrid').append(el(engagement.map((e, i) => `
+    <div class="engage-card ${e.mid ? 'mid' : ''}" style="--i:${i}">
+      <h3>${e.t}</h3>
+      <ul>${e.items.map(it => `<li>${it}</li>`).join('')}</ul>
+    </div>`).join('')));
+
+      document.getElementById('quoteGrid').append(el(quotes.map((q, i) => `
+    <div class="quote-card" style="--i:${i}">
+      <svg class="qmark" viewBox="0 0 24 24" fill="currentColor"><path d="M7 17h3l2-4V7H5v6h3zm9 0h3l2-4V7h-7v6h3z"/></svg>
+      <p class="quote">${q.q}</p>
+      <div class="who"><b>${q.who}</b><span>${q.role}</span></div>
+    </div>`).join('')));
+
+      const marqueeItems = ['Certified Odoo Gold Partner', '12+ Years ERP Expertise', '50+ Global Clients', '20+ Industries Served', '98% Client Retention'];
+      const marqueeHtml = marqueeItems.map(m => `<span><b>&#9670;</b> ${m}</span>`).join('');
+      document.getElementById('marquee').innerHTML = marqueeHtml + marqueeHtml;
+
+      /* orbit nodes */
+      const orbitItems = ['Sales', 'CRM', 'Inventory', 'Manufacturing', 'Accounting', 'HR'];
+      const spokes = document.getElementById('spokes');
+      const nodes = document.getElementById('nodes');
+      const R = 160, cx = 200, cy = 200;
+      orbitItems.forEach((name, i) => {
+
+        const angle = (Math.PI * 2 * i) / orbitItems.length - Math.PI / 2;
+
+        const x = cx + R * Math.cos(angle);
+        const y = cy + R * Math.sin(angle);
+
+        const radius = name === "Manufacturing" ? 42 : 30;
+
+        spokes.innerHTML += `
+        <path class="orbit-line" d="M${cx} ${cy} L${x} ${y}"/>
+        <path class="orbit-flow" d="M${cx} ${cy} L${x} ${y}"/>
+    `;
+
+        nodes.innerHTML += `
+        <circle class="orbit-node"
+            cx="${x}"
+            cy="${y}"
+            r="${radius}"/>
+
+        <text class="orbit-label"
+            x="${x}"
+            y="${y + 3}">
+            ${name}
+        </text>
+    `;
+
+      });
+
+      /* header scroll state */
+      const header = document.getElementById('siteHeader');
+      window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 30));
+
+      /* ---------- Mobile Navigation ---------- */
+
+      const navToggle = document.getElementById("navToggle");
+      const primaryNav = document.getElementById("primaryNav");
+      const navOverlay = document.getElementById("navOverlay");
+
+      function openMenu() {
+
+        primaryNav.classList.add("open");
+        navOverlay.classList.add("active");
+
+        document.body.classList.add("menu-open");
+
+        navToggle.setAttribute("aria-expanded", "true");
+      }
+
+      function closeMenu() {
+
+        primaryNav.classList.remove("open");
+        navOverlay.classList.remove("active");
+
+        document.body.classList.remove("menu-open");
+
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+
+      navToggle.addEventListener("click", () => {
+
+        if (primaryNav.classList.contains("open"))
+          closeMenu();
+        else
+          openMenu();
+
+      });
+
+      navOverlay.addEventListener("click", closeMenu);
+
+      primaryNav.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click", closeMenu);
+
+      });
+
+      document.addEventListener("keydown", (e) => {
+
+        if (e.key === "Escape")
+          closeMenu();
+
+      });
+
+      window.addEventListener("resize", () => {
+
+        if (window.innerWidth > 920) {
+
+          closeMenu();
+
+        }
+
+      });
+      /* reveal on scroll */
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.reveal').forEach(elm => io.observe(elm));
+
+      document.querySelectorAll('.reveal-stagger').forEach(group => {
+        group.classList.add('reveal');
+        Array.from(group.children).forEach((child, i) => { child.classList.add('reveal'); child.style.setProperty('--i', i); });
+        const gio = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              Array.from(e.target.children).forEach((child, i) => setTimeout(() => child.classList.add('visible'), i * 90));
+              gio.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        gio.observe(group);
+      });
+
+      /* counters */
+      const counters = document.querySelectorAll('[data-count]');
+      const cio = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const target = +e.target.dataset.count;
+          const suffix = e.target.dataset.suffix || '';
+          const dur = 1400; const start = performance.now();
+          function step(now) {
+            const p = Math.min((now - start) / dur, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+            e.target.textContent = Math.round(eased * target) + suffix;
+            if (p < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+          cio.unobserve(e.target);
+        });
+      }, { threshold: 0.5 });
+      counters.forEach(c => cio.observe(c));
+
+      /* subtle mouse parallax on orbit */
+      const orbitWrap = document.querySelector('.orbit-wrap');
+      if (orbitWrap && matchMedia('(pointer:fine)').matches) {
+        document.querySelector('.hero').addEventListener('mousemove', (e) => {
+          const r = orbitWrap.getBoundingClientRect();
+          const dx = (e.clientX - (r.left + r.width / 2)) / r.width;
+          const dy = (e.clientY - (r.top + r.height / 2)) / r.height;
+          orbitWrap.style.transform = `rotate(${dx * 3}deg) translate(${dx * 6}px, ${dy * 6}px)`;
+        });
+      }
+    })();
+    /* ---------------- theme toggle logic ---------------- */
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+
+    const moonPath = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+    const sunPath = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+
+    // Initialize state on load
+    if (currentTheme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      themeIcon.innerHTML = sunPath;
+    }
+
+    themeToggle.addEventListener('click', () => {
+      let theme = document.documentElement.getAttribute('data-theme');
+      if (theme === 'light') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+        themeIcon.innerHTML = moonPath;
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        themeIcon.innerHTML = sunPath;
+      }
+    });
+  </script>
+</body>
+
+</html>
