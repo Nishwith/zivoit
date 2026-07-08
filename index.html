@@ -8,6 +8,7 @@
   <meta name="description"
     content="ZIVO IT is a Certified Odoo Official Partner delivering ERP implementation, business transformation and process automation across 27+ industries.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="shortcut icon" href="image.png" type="image/x-icon">
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
@@ -259,9 +260,9 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
       font-family: var(--ff-display);
       font-weight: 700;
+      gap: 10px;
       font-size: 1.15rem;
       letter-spacing: -.01em
     }
@@ -432,7 +433,7 @@
 
     /* ---------- hero ---------- */
     .hero {
-      padding: 168px 0 90px;
+      padding: 110px 0 90px;
       position: relative;
       overflow: hidden
     }
@@ -534,18 +535,17 @@
     }
 
     .orbit-label {
-      font-family: var(--ff-mono);
-      font-size: 9.5px;
-      font-weight: 900;
+      font-size: 10px;
+      font-weight: bolder;
       fill: var(--text-1);
       text-anchor: middle
     }
 
     .orbit-core-label {
       font-family: var(--ff-display);
-      font-size: 13px;
+      font-size: 12px;
       fill: #04121A;
-      font-weight: 900;
+      font-weight: bolder;
       text-anchor: middle
     }
 
@@ -1510,8 +1510,8 @@
   <header id="siteHeader">
     <div class="wrap">
       <a href="#home" class="logo">
-        <img src="image.png" width="75" alt="" srcset="">
-        <span style="font-size: 2rem; font-weight: bold;">ZIVO IT</span>
+        <img src="image.png" width="70" alt="" srcset="">
+        <span style="font-size: 2.5rem; font-weight: bold;">ZIVO IT</span>
       </a>
       <nav class="primary-nav" id="primaryNav">
         <a href="#services">Services</a>
@@ -1585,8 +1585,8 @@
             <circle class="orbit-ring" cx="200" cy="200" r="110" />
             <g id="spokes"></g>
             <circle class="orbit-node core" cx="200" cy="200" r="54" />
-            <text class="orbit-core-label" x="200" y="196" style="font-size:14px">ZIVO IT</text>
-            <text class="orbit-core-label" x="200" y="211" style="font-size:7px">ERP CORE EXPERTISE</text>
+            <text class="orbit-core-label" x="200" y="196" style="font-size:16px">ZIVO IT</text>
+            <text class="orbit-core-label" x="200" y="211" style="font-size:8px">ERP CORE EXPERTISE</text>
             <g id="nodes"></g>
           </svg>
         </div>
@@ -1736,8 +1736,8 @@
       <div class="foot-grid">
         <div class="foot-brand">
           <a href="#home" class="logo">
-            <img src="image.png" width="75" alt="" srcset="">
-            <span style="font-size: 2rem; font-weight: bold;">ZIVO IT</span>
+            <img src="image.png" width="70" alt="" srcset="">
+            <span style="font-size: 2.2rem; font-weight: bold;">ZIVO IT</span>
           </a>
           <p>Where technology meets business transformation. Certified Odoo Official Partner headquartered in
             Hyderabad, India.</p>
@@ -1918,7 +1918,7 @@
         const x = cx + R * Math.cos(angle);
         const y = cy + R * Math.sin(angle);
 
-        const radius = name === "Manufacturing" ? 42 : 30;
+        const radius = 42;
 
         spokes.innerHTML += `
         <path class="orbit-line" d="M${cx} ${cy} L${x} ${y}"/>
@@ -2051,7 +2051,8 @@
           const r = orbitWrap.getBoundingClientRect();
           const dx = (e.clientX - (r.left + r.width / 2)) / r.width;
           const dy = (e.clientY - (r.top + r.height / 2)) / r.height;
-          orbitWrap.style.transform = `rotate(${dx * 3}deg) translate(${dx * 6}px, ${dy * 6}px)`;
+          orbitWrap.style.transform =
+            `translate(${x}px, ${y}px) rotate(${angle}deg)`;
         });
       }
     })();
