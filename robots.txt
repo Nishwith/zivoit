@@ -1,0 +1,19 @@
+# =================================================================
+# ZIVO IT - ROBOTS.TXT
+# Preferred Domain: https://www.zivoit.com/
+# =================================================================
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /global-presence.css
+Allow: /global-presence.js
+Allow: /image.png
+Allow: /earth.mp4
+
+# Disallow private scratch and internal data
+Disallow: /scratch/
+Disallow: /*.json$
+
+# XML Sitemap Directive
+Sitemap: https://www.zivoit.com/sitemap.xml
