@@ -1,0 +1,1768 @@
+/* =================================================================
+   ZIVO IT — CYBERSECURITY PAGE STYLESHEET (cybersecurity.css)
+   Isolated styles for cybersecurity.html
+   ================================================================= */
+
+:root {
+  --bg-0: #060B1C;
+  --bg-1: #0B1530;
+  --bg-2: #101E42;
+  --line: #1D2C54;
+  --cyan: #22D3EE;
+  --cyan-soft: rgba(34, 211, 238, 0.14);
+  --cyan-glow: rgba(34, 211, 238, 0.25);
+  --teal: #0EA5B7;
+  --teal-soft: rgba(14, 165, 183, 0.15);
+  --gold: #F2B441;
+  --gold-soft: rgba(242, 180, 65, 0.14);
+  --text-0: #EDF2FB;
+  --text-1: #AEBAD9;
+  --text-2: #7E8CB0;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --maxw: 1200px;
+  --ff-display: 'Space Grotesk', sans-serif;
+  --ff-body: 'Inter', sans-serif;
+  --ff-mono: 'JetBrains Mono', monospace;
+  --ease: cubic-bezier(.16, .84, .44, 1);
+}
+
+[data-theme="light"] {
+  --bg-0: #F8FAFC;
+  --bg-1: #FFFFFF;
+  --bg-2: #F1F5F9;
+  --line: #E2E8F0;
+  --cyan: #0284C7;
+  --cyan-soft: rgba(2, 132, 199, 0.08);
+  --cyan-glow: rgba(2, 132, 199, 0.18);
+  --teal: #0D9488;
+  --teal-soft: rgba(13, 148, 136, 0.08);
+  --text-0: #0F172A;
+  --text-1: #475569;
+  --text-2: #64748B;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-0);
+  color: var(--text-0);
+  font-family: var(--ff-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- COMMON TYPOGRAPHY & BUTTONS ---------- */
+.eyebrow {
+  font-family: var(--ff-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 18px;
+  height: 1px;
+  background: var(--cyan);
+}
+
+.section-head {
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto 60px;
+}
+
+.section-head h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-0);
+  margin-bottom: 16px;
+}
+
+.section-head p {
+  font-size: 1.1rem;
+  color: var(--text-1);
+  line-height: 1.65;
+}
+
+/* Button styles matching ZIVO IT brand */
+.btn-cyber-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--teal) 100%);
+  color: #040914 !important;
+  font-family: var(--ff-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), opacity 0.25s var(--ease);
+  box-shadow: 0 4px 20px var(--cyan-glow);
+}
+
+.btn-cyber-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--cyan-glow);
+  opacity: 0.96;
+}
+
+.btn-cyber-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  background: var(--bg-1);
+  color: var(--text-0);
+  font-family: var(--ff-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease), background 0.25s var(--ease);
+}
+
+.btn-cyber-secondary:hover {
+  transform: translateY(-2px);
+  border-color: var(--cyan);
+  background: var(--cyan-soft);
+  color: var(--cyan);
+}
+
+/* ---------- 2. HERO SECTION ---------- */
+.cyber-hero {
+  position: relative;
+  padding: 50px 0 100px;
+  overflow: hidden;
+}
+
+.cyber-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.hero-text-col h1 {
+  font-family: var(--ff-display);
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  color: var(--text-0);
+}
+
+.hero-text-col h1 .cyan-glow-text {
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--teal) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-text-col p.hero-desc {
+  font-size: 1.18rem;
+  color: var(--text-1);
+  margin-bottom: 36px;
+  line-height: 1.65;
+  max-width: 540px;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Abstract Security Architecture Visual (Hero Graphic) */
+.hero-visual-col {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-security-mesh {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 1 / 1;
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.hero-mesh-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, var(--cyan-glow) 0%, rgba(34, 211, 238, 0) 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.mesh-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 16px;
+  z-index: 2;
+}
+
+.mesh-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--ff-mono);
+  font-size: 0.75rem;
+  color: var(--cyan);
+  background: var(--cyan-soft);
+  padding: 6px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(34, 211, 238, 0.3);
+}
+
+.mesh-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.3);
+    opacity: 0.6;
+  }
+}
+
+.mesh-diagram-body {
+  position: relative;
+  z-index: 2;
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.mesh-node {
+  background: var(--bg-0);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 12px;
+  text-align: center;
+  transition: all 0.3s var(--ease);
+}
+
+.mesh-node:hover,
+.mesh-node.active {
+  border-color: var(--cyan);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px var(--cyan-soft);
+}
+
+.mesh-node-icon {
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 10px;
+  color: var(--cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mesh-node span {
+  display: block;
+  font-family: var(--ff-mono);
+  font-size: 0.72rem;
+  color: var(--text-1);
+  font-weight: 500;
+}
+
+.mesh-center-shield {
+  grid-column: span 3;
+  background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-1) 100%);
+  border: 1px solid var(--cyan);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 10px 30px var(--cyan-soft);
+}
+
+.shield-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: var(--cyan-soft);
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.shield-info-text h4 {
+  font-family: var(--ff-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-0);
+}
+
+.shield-info-text p {
+  font-family: var(--ff-mono);
+  font-size: 0.75rem;
+  color: var(--text-2);
+}
+
+.mesh-footer-metrics {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  z-index: 2;
+}
+
+.metric-item span.metric-label {
+  display: block;
+  font-family: var(--ff-mono);
+  font-size: 0.68rem;
+  color: var(--text-2);
+  text-transform: uppercase;
+}
+
+.metric-item span.metric-val {
+  font-family: var(--ff-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-0);
+}
+
+/* ---------- 3. SECURITY CHALLENGES ---------- */
+.section-challenges {
+  padding: 90px 0;
+  background: var(--bg-0);
+  border-top: 1px solid var(--line);
+}
+
+.challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.challenge-card {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.challenge-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--cyan);
+  box-shadow: 0 12px 30px var(--cyan-soft);
+}
+
+.card-num-badge {
+  font-family: var(--ff-mono);
+  font-size: 0.78rem;
+  color: var(--cyan);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.challenge-card h3 {
+  font-family: var(--ff-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-0);
+  line-height: 1.25;
+}
+
+.challenge-card p {
+  font-size: 0.96rem;
+  color: var(--text-1);
+  line-height: 1.6;
+}
+
+/* ---------- 4. CYBERSECURITY CAPABILITY PILLARS ---------- */
+.section-capabilities {
+  padding: 100px 0;
+  background: var(--bg-1);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.pillar-card {
+  background: var(--bg-0);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 36px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  position: relative;
+  transition: transform 0.35s var(--ease), border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+.pillar-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--cyan);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+.pillar-head-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--cyan-soft);
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  color: var(--cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.pillar-card h3 {
+  font-family: var(--ff-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-0);
+  margin-bottom: 10px;
+}
+
+.pillar-card p.pillar-intro {
+  font-size: 0.92rem;
+  color: var(--text-1);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.pillar-feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+.pillar-feature-list li {
+  font-family: var(--ff-body);
+  font-size: 0.88rem;
+  color: var(--text-0);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pillar-feature-list li::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--cyan);
+  flex-shrink: 0;
+}
+
+/* ---------- 5. RISK MANAGEMENT (SEPARATE SECTION) ---------- */
+.section-risk {
+  padding: 100px 0;
+  background: var(--bg-0);
+  border-top: 1px solid var(--line);
+}
+
+.risk-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.risk-card {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.risk-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cyan);
+  box-shadow: 0 12px 30px var(--cyan-soft);
+}
+
+.risk-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--cyan-soft);
+  color: var(--cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.risk-card h3 {
+  font-family: var(--ff-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-0);
+}
+
+.risk-card p {
+  font-size: 0.95rem;
+  color: var(--text-1);
+  line-height: 1.6;
+}
+
+/* ---------- 6. COMPLIANCE FRAMEWORKS (12 EXACT CARDS WITH PERFECT GAUGE CENTERING & ON-PAGE MODAL TRIGGER) ---------- */
+.section-compliance-frameworks {
+  padding: 100px 0;
+  background: var(--bg-1);
+  border-top: 1px solid var(--line);
+}
+
+.compliance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.compliance-card {
+  background: var(--bg-0);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 22px;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+[data-theme="light"] .compliance-card {
+  background: #FFFFFF;
+  border-color: var(--line);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
+}
+
+.compliance-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--cyan);
+  box-shadow: 0 16px 40px var(--cyan-soft);
+}
+
+/* Header: Badge + Framework Title */
+.comp-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.comp-badge-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0284C7 0%, #0284C7 100%);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ff-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-align: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+}
+
+.comp-badge-icon.blue {
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+}
+
+.comp-badge-icon.cyan {
+  background: linear-gradient(135deg, #0284C7 0%, #0891B2 100%);
+}
+
+.comp-badge-icon.teal {
+  background: linear-gradient(135deg, #0D9488 0%, #059669 100%);
+}
+
+.comp-badge-icon.purple {
+  background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+}
+
+.comp-card-header h3 {
+  font-family: var(--ff-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-0);
+  line-height: 1.2;
+}
+
+/* Card Body: Circular Progress Gauge Component with PERFECT CENTERING and ZERO OVERFLOW */
+.comp-card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.compliance-gauge {
+  position: relative;
+  width: 104px;
+  height: 104px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compliance-gauge svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.gauge-track {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 7;
+}
+
+.gauge-progress {
+  fill: none;
+  stroke: var(--cyan);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-dasharray: 238.76;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s var(--ease);
+}
+
+.compliance-gauge.p91 .gauge-progress {
+  stroke-dashoffset: 21.48;
+  stroke: #0891B2;
+}
+
+.compliance-gauge.p94 .gauge-progress {
+  stroke-dashoffset: 14.32;
+  stroke: #0D9488;
+}
+
+.compliance-gauge.p85 .gauge-progress {
+  stroke-dashoffset: 35.81;
+  stroke: #0284C7;
+}
+
+.compliance-gauge.p79 .gauge-progress {
+  stroke-dashoffset: 50.14;
+  stroke: #0891B2;
+}
+
+.compliance-gauge.p73 .gauge-progress {
+  stroke-dashoffset: 64.46;
+  stroke: #D97706;
+}
+
+.compliance-gauge.p68 .gauge-progress {
+  stroke-dashoffset: 76.40;
+  stroke: #0D9488;
+}
+
+.compliance-gauge.p64 .gauge-progress {
+  stroke-dashoffset: 85.95;
+  stroke: #D97706;
+}
+
+.compliance-gauge.p76 .gauge-progress {
+  stroke-dashoffset: 57.30;
+  stroke: #0284C7;
+}
+
+.compliance-gauge.p82 .gauge-progress {
+  stroke-dashoffset: 42.97;
+  stroke: #0891B2;
+}
+
+.gauge-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8px;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.gauge-percentage {
+  font-family: var(--ff-display);
+  font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+  font-weight: 700;
+  color: var(--text-0);
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+  margin-bottom: 2px;
+}
+
+.gauge-label {
+  font-family: var(--ff-mono);
+  font-size: 0.58rem;
+  color: var(--text-2);
+  text-transform: uppercase;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.comp-metrics-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: right;
+}
+
+.metric-row span.m-title {
+  display: block;
+  font-family: var(--ff-mono);
+  font-size: 0.68rem;
+  color: var(--text-2);
+  text-transform: uppercase;
+}
+
+.metric-row span.m-val {
+  font-family: var(--ff-display);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-0);
+}
+
+/* Card Footer: Functional Open Framework Button Triggering Modal */
+.comp-card-footer {
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.open-framework-btn {
+  background: none;
+  border: none;
+  color: #2563EB;
+  font-family: var(--ff-display);
+  font-size: 0.88rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+[data-theme="dark"] .open-framework-btn,
+:root:not([data-theme="light"]) .open-framework-btn {
+  color: var(--cyan);
+}
+
+.compliance-card:hover .open-framework-btn {
+  color: var(--teal);
+  transform: translateX(4px);
+}
+
+/* ---------- COMPLIANCE FRAMEWORK MODAL DIALOG ---------- */
+.framework-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 11, 28, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s var(--ease), visibility 0.3s var(--ease);
+}
+
+.framework-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.framework-modal-card {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  max-width: 660px;
+  width: 92vw;
+  padding: 36px;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  transform: translateY(20px) scale(0.96);
+  transition: transform 0.3s var(--ease);
+  max-height: 88vh;
+  overflow-y: auto;
+}
+
+.framework-modal-overlay.active .framework-modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-0);
+  border: 1px solid var(--line);
+  color: var(--text-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+}
+
+.modal-close-btn:hover {
+  color: var(--text-0);
+  border-color: var(--cyan);
+  background: var(--cyan-soft);
+}
+
+.modal-header-block {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 20px;
+}
+
+.modal-badge {
+  width: 48px;
+  height: 48px;
+  font-size: 0.75rem;
+}
+
+.modal-header-block h3 {
+  font-family: var(--ff-display);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--text-0);
+}
+
+.modal-header-block p.modal-sub {
+  font-family: var(--ff-mono);
+  font-size: 0.78rem;
+  color: var(--cyan);
+}
+
+.modal-body-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-section-title {
+  font-family: var(--ff-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-0);
+  margin-bottom: 6px;
+}
+
+.modal-body-content p {
+  font-size: 0.96rem;
+  color: var(--text-1);
+  line-height: 1.65;
+}
+
+.modal-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-bullets li {
+  font-size: 0.92rem;
+  color: var(--text-1);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.modal-bullets li::before {
+  content: '✓';
+  color: var(--cyan);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.modal-action-footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ---------- 8. SECURITY TECHNOLOGY GRID ---------- */
+.section-technology {
+  padding: 100px 0;
+  background: var(--bg-0);
+  border-top: 1px solid var(--line);
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.tech-item-card {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.tech-item-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cyan);
+}
+
+.tech-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--cyan-soft);
+  color: var(--cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-item-card h3 {
+  font-family: var(--ff-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-0);
+}
+
+.tech-item-card p {
+  font-size: 0.88rem;
+  color: var(--text-1);
+  line-height: 1.5;
+}
+
+/* ---------- 9. MANAGED SECURITY ---------- */
+.section-managed {
+  padding: 100px 0;
+  background: var(--bg-1);
+  border-top: 1px solid var(--line);
+}
+
+.managed-process-flow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  position: relative;
+}
+
+.process-step-card {
+  background: var(--bg-0);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 20px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.process-step-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cyan);
+}
+
+.step-num-badge {
+  font-family: var(--ff-mono);
+  font-size: 0.75rem;
+  color: var(--cyan);
+  background: var(--cyan-soft);
+  padding: 4px 10px;
+  border-radius: 100px;
+  display: inline-block;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.process-step-card h3 {
+  font-family: var(--ff-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-0);
+  margin-bottom: 8px;
+}
+
+.process-step-card p {
+  font-size: 0.88rem;
+  color: var(--text-1);
+  line-height: 1.5;
+}
+
+/* ---------- 10. SECURITY ARCHITECTURE (LAYERED MODEL) ---------- */
+.section-architecture {
+  padding: 100px 0;
+  background: var(--bg-0);
+  border-top: 1px solid var(--line);
+}
+
+.architecture-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.arch-layer {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 22px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  transition: all 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.arch-layer::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--cyan);
+  opacity: 0.4;
+  transition: opacity 0.3s var(--ease), width 0.3s var(--ease);
+}
+
+.arch-layer:hover {
+  transform: translateX(8px);
+  border-color: var(--cyan);
+  box-shadow: 0 10px 25px var(--cyan-soft);
+}
+
+.arch-layer:hover::before {
+  opacity: 1;
+  width: 6px;
+}
+
+.layer-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.layer-num {
+  font-family: var(--ff-mono);
+  font-size: 0.85rem;
+  color: var(--cyan);
+  font-weight: 600;
+  width: 32px;
+  flex-shrink: 0;
+}
+
+.layer-title {
+  font-family: var(--ff-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-0);
+}
+
+.layer-desc {
+  font-size: 0.92rem;
+  color: var(--text-1);
+}
+
+.layer-tag {
+  font-family: var(--ff-mono);
+  font-size: 0.74rem;
+  color: var(--text-2);
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  padding: 6px 14px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+/* ---------- 11. SECURITY JOURNEY ---------- */
+.section-journey {
+  padding: 100px 0;
+  background: var(--bg-1);
+  border-top: 1px solid var(--line);
+}
+
+.journey-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.journey-step {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: var(--bg-0);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.journey-step:hover {
+  transform: translateX(6px);
+  border-color: var(--cyan);
+}
+
+.journey-num {
+  font-family: var(--ff-mono);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--cyan);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.journey-content h3 {
+  font-family: var(--ff-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-0);
+  margin-bottom: 6px;
+}
+
+.journey-content p {
+  font-size: 0.96rem;
+  color: var(--text-1);
+}
+
+/* ---------- 12. WHY ZIVO IT ---------- */
+.section-why-us {
+  padding: 100px 0;
+  background: var(--bg-0);
+  border-top: 1px solid var(--line);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.why-card {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.why-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cyan);
+}
+
+.why-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--cyan-soft);
+  color: var(--cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.why-card h3 {
+  font-family: var(--ff-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-0);
+}
+
+.why-card p {
+  font-size: 0.95rem;
+  color: var(--text-1);
+  line-height: 1.6;
+}
+
+/* ---------- 13. FINAL CTA ---------- */
+.section-final-cta {
+  padding: 100px 0;
+  background: var(--bg-1);
+  border-top: 1px solid var(--line);
+}
+
+.final-cta-box {
+  background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-0) 100%);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 70px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.final-cta-box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 300px;
+  background: radial-gradient(circle, var(--cyan-glow) 0%, rgba(34, 211, 238, 0) 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.final-cta-box h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: var(--text-0);
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.final-cta-box p {
+  font-size: 1.15rem;
+  color: var(--text-1);
+  max-width: 660px;
+  margin: 0 auto 36px;
+  position: relative;
+  z-index: 1;
+}
+
+.final-cta-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- RESPONSIVENESS ---------- */
+@media (max-width: 1024px) {
+
+  .challenges-grid,
+  .compliance-grid,
+  .risk-grid,
+  .why-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .managed-process-flow {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 920px) {
+  .cyber-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: center;
+  }
+
+  .hero-text-col p.hero-desc {
+    margin: 0 auto 36px;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .hero-visual-col {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    min-width: 0;
+  }
+
+  .arch-layer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .layer-tag {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .challenges-grid,
+  .pillars-grid,
+  .compliance-grid,
+  .risk-grid,
+  .tech-grid,
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .managed-process-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .journey-step {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .final-cta-box {
+    padding: 48px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-security-mesh {
+    aspect-ratio: auto;
+    padding: 20px 14px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .mesh-diagram-body {
+    gap: 8px;
+    margin: 14px 0;
+  }
+
+  .mesh-node {
+    padding: 10px 4px;
+    border-radius: 8px;
+  }
+
+  .mesh-node-icon {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 6px;
+  }
+
+  .mesh-node-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .mesh-node span {
+    font-size: 0.65rem;
+  }
+
+  .mesh-center-shield {
+    padding: 12px 10px;
+    gap: 10px;
+    border-radius: 10px;
+  }
+
+  .shield-icon-wrap {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+  }
+
+  .shield-icon-wrap svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .shield-info-text h4 {
+    font-size: 0.88rem;
+  }
+
+  .shield-info-text p {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cyber-hero {
+    padding: 40px 0 60px;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-cyber-primary,
+  .btn-cyber-secondary {
+    width: 100%;
+  }
+
+  .final-cta-btns {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .compliance-gauge {
+    width: 90px;
+    height: 90px;
+  }
+
+  .gauge-percentage {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .wrap {
+    padding-inline: 14px;
+  }
+
+  .mesh-status-badge {
+    font-size: 0.65rem;
+    padding: 4px 8px;
+  }
+
+  .shield-info-text h4 {
+    font-size: 0.82rem;
+  }
+}
+
+/* =================================================================
+   ON-PAGE FRAMEWORK REUSABLE MODAL DIALOG OVERLAY STYLES
+   ================================================================= */
+.modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 24px !important;
+  box-sizing: border-box !important;
+  z-index: 999999 !important;
+  background: rgba(3, 8, 20, 0.82) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  overflow-y: auto !important;
+  transition: opacity 0.3s var(--ease), visibility 0.3s var(--ease);
+}
+
+.modal-overlay.active,
+.modal-overlay.is-open,
+.modal-overlay.open {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+/* Modal Container Card */
+.modal-card {
+  position: relative !important;
+  z-index: 2 !important;
+  width: min(680px, 92vw) !important;
+  max-width: 680px !important;
+  max-height: 88vh !important;
+  overflow-y: auto !important;
+  margin: auto !important;
+  box-sizing: border-box !important;
+  background: var(--bg-card, #0F172A) !important;
+  border: 1px solid var(--line, rgba(255, 255, 255, 0.12)) !important;
+  border-radius: 18px !important;
+  padding: 36px 32px 32px !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5) !important;
+  transform: translateY(20px);
+  transition: transform 0.3s var(--ease);
+}
+
+.modal-overlay.active .modal-card,
+.modal-overlay.is-open .modal-card,
+.modal-overlay.open .modal-card {
+  transform: translateY(0);
+}
+
+[data-theme="light"] .modal-card {
+  background: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18) !important;
+}
+
+/* Modal Close Button */
+.modal-close {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: var(--text-0, #FFFFFF) !important;
+  position: absolute !important;
+  top: 20px !important;
+  right: 20px !important;
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.5rem !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  z-index: 10 !important;
+  transition: all 0.2s var(--ease) !important;
+}
+
+[data-theme="light"] .modal-close {
+  background: #F1F5F9 !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+.modal-close:hover {
+  background: var(--cyan) !important;
+  color: #FFFFFF !important;
+  border-color: var(--cyan) !important;
+}
+
+/* Modal Header Section */
+.modal-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  margin-bottom: 24px !important;
+  padding-right: 40px !important;
+}
+
+.modal-header h3 {
+  font-family: var(--ff-display) !important;
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+  color: var(--text-0) !important;
+  line-height: 1.2 !important;
+  margin: 0 0 4px 0 !important;
+}
+
+.modal-sub {
+  font-size: 0.92rem !important;
+  color: var(--text-1) !important;
+  margin: 0 !important;
+}
+
+/* Modal Metrics Bar */
+.modal-metrics-bar {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 12px !important;
+  background: var(--bg-1, rgba(255, 255, 255, 0.03)) !important;
+  border: 1px solid var(--line, rgba(255, 255, 255, 0.08)) !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  margin-bottom: 24px !important;
+  text-align: center !important;
+}
+
+[data-theme="light"] .modal-metrics-bar {
+  background: #F8FAFC !important;
+  border-color: #E2E8F0 !important;
+}
+
+.m-box {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+
+.m-box .m-val {
+  font-family: var(--ff-display) !important;
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+  color: var(--cyan) !important;
+}
+
+.m-box .m-lbl {
+  font-family: var(--ff-mono) !important;
+  font-size: 0.68rem !important;
+  color: var(--text-2) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* Modal Body Content */
+.modal-body {
+  color: var(--text-1) !important;
+  font-size: 0.96rem !important;
+  line-height: 1.65 !important;
+}
+
+.modal-body p {
+  margin-bottom: 18px !important;
+}
+
+.modal-body h4 {
+  font-family: var(--ff-display) !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: var(--text-0) !important;
+  margin: 20px 0 10px 0 !important;
+}
+
+.modal-body ul {
+  padding-left: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.modal-body ul li {
+  margin-bottom: 8px !important;
+  color: var(--text-1) !important;
+}
+
+/* Body Modal Open State */
+body.modal-open {
+  overflow: hidden !important;
+}
+
+/* Mobile Responsiveness for Modal */
+@media (max-width: 600px) {
+  .modal-overlay {
+    padding: 16px !important;
+  }
+
+  .modal-card {
+    width: 100% !important;
+    max-width: none !important;
+    max-height: calc(100vh - 32px) !important;
+    padding: 24px 20px 20px !important;
+  }
+
+  .modal-metrics-bar {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+}

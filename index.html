@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZIVO IT | AI-Powered ERP Solutions &amp; Certified Odoo Partner</title>
+  <title>ZIVO IT | AI-Powered ERP, Cybersecurity &amp; Digital Transformation</title>
   <meta name="description"
-    content="ZIVO IT (Shrisampadha Private Ltd) is an official Certified Odoo Partner delivering AI-powered ERP implementation, business automation &amp; digital transformation.">
+    content="ZIVO IT (Shrisampadha Private Ltd) is an official Certified Odoo Partner delivering AI-powered ERP implementation, cybersecurity, business automation &amp; digital transformation.">
   <meta name="keywords"
-    content="ZIVO IT, ZIVOIT, ZIVO IT ERP, ZIVO IT Odoo, ZIVO IT Hyderabad, Odoo Official Partner, AI-Powered ERP, ERP Implementation, Business Automation">
+    content="ZIVO IT, ZIVOIT, ZIVO IT ERP, ZIVO IT Cybersecurity, ZIVO IT Odoo, ZIVO IT Hyderabad, Odoo Official Partner, AI-Powered ERP, Enterprise Security, ERP Implementation, Business Automation">
   <meta name="author" content="ZIVO IT (Shrisampadha Private Limited)">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
@@ -19,18 +19,18 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.zivoit.com/">
   <meta property="og:site_name" content="ZIVO IT">
-  <meta property="og:title" content="ZIVO IT | AI-Powered ERP Solutions &amp; Certified Odoo Partner">
+  <meta property="og:title" content="ZIVO IT | AI-Powered ERP, Cybersecurity &amp; Digital Transformation">
   <meta property="og:description"
-    content="ZIVO IT is a Certified Odoo Official Partner delivering AI-powered ERP implementation, business transformation, and process automation across global markets.">
+    content="ZIVO IT is a Certified Odoo Official Partner delivering AI-powered ERP implementation, enterprise cybersecurity, business transformation, and process automation.">
   <meta property="og:image" content="https://www.zivoit.com/image.png">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://www.zivoit.com/">
-  <meta name="twitter:title" content="ZIVO IT | AI-Powered ERP Solutions &amp; Certified Odoo Partner">
+  <meta name="twitter:title" content="ZIVO IT | AI-Powered ERP, Cybersecurity &amp; Digital Transformation">
   <meta name="twitter:description"
-    content="Official Certified Odoo Partner helping enterprises unify operations with AI-powered ERP &amp; digital transformation.">
+    content="Official Certified Odoo Partner helping enterprises unify operations with AI-powered ERP, cybersecurity &amp; digital transformation.">
   <meta name="twitter:image" content="https://www.zivoit.com/image.png">
 
   <!-- Favicon & Resource Hints -->
@@ -2182,6 +2182,113 @@
       }
 
     }
+
+    /* 4. HOMEPAGE CYBERSECURITY PROMO SECTION */
+    .cybersecurity-promo {
+      background: var(--bg-0);
+      border-top: 1px solid var(--line);
+      position: relative;
+    }
+
+    .cyber-promo-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .cyber-promo-desc {
+      color: var(--text-1);
+      font-size: 1.05rem;
+      margin-bottom: 28px;
+      max-width: 600px;
+    }
+
+    .cyber-promo-features {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 32px;
+    }
+
+    .cyber-promo-feat-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .cyber-promo-feat-item .feat-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--cyan-soft);
+      border: 1px solid rgba(34, 211, 238, 0.2);
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .cyber-promo-feat-item strong {
+      display: block;
+      color: var(--text-0);
+      font-size: 0.98rem;
+      margin-bottom: 2px;
+    }
+
+    .cyber-promo-feat-item span {
+      color: var(--text-1);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    .cyber-layers-card {
+      background: linear-gradient(160deg, var(--bg-1), var(--bg-2));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .cyber-layer-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
+      border-radius: 10px;
+      background: var(--bg-0);
+      border: 1px solid var(--line);
+      transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+    }
+
+    .cyber-layer-strip.active {
+      background: rgba(34, 211, 238, 0.06);
+      border-color: rgba(34, 211, 238, 0.3);
+    }
+
+    .cyber-layer-strip .layer-badge {
+      font-family: var(--ff-mono);
+      font-size: 0.72rem;
+      color: var(--cyan);
+      letter-spacing: 0.06em;
+    }
+
+    .cyber-layer-strip .layer-title {
+      font-size: 0.92rem;
+      color: var(--text-0);
+      font-weight: 600;
+    }
+
+    @media (max-width: 920px) {
+      .cyber-promo-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
   </style>
 </head>
 
@@ -2199,6 +2306,7 @@
       </a>
       <nav class="primary-nav" id="primaryNav">
         <a href="#services">Services</a>
+        <a href="cybersecurity.html">Cybersecurity</a>
         <a href="#platforms">Platforms</a>
         <a href="#our-approach">Process</a>
         <a href="#industries">Industries</a>
@@ -2284,6 +2392,90 @@
           <p>From first blueprint to long-term hypercare, we cover every layer of your Odoo journey.</p>
         </div>
         <div class="grid cols-5 reveal-stagger" id="servicesGrid"></div>
+      </div>
+    </section>
+
+    <!-- CYBERSECURITY FEATURED CTA SECTION -->
+    <section class="section-pad cybersecurity-promo" id="cybersecurity">
+      <div class="wrap">
+        <div class="cyber-promo-grid reveal">
+          <div class="cyber-promo-copy">
+            <span class="eyebrow">CYBERSECURITY</span>
+            <h2>Secure the systems that power your business.</h2>
+            <p class="cyber-promo-desc">
+              Strengthen your security posture with cybersecurity capabilities designed around risk, compliance, technology and continuous protection.
+            </p>
+            <div class="cyber-promo-features">
+              <div class="cyber-promo-feat-item">
+                <div class="feat-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Risk Management &amp; Governance</strong>
+                  <span>Quantify technical exposure and prioritize security controls.</span>
+                </div>
+              </div>
+              <div class="cyber-promo-feat-item">
+                <div class="feat-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>12 Global Compliance Frameworks</strong>
+                  <span>SOC 2, ISO 27001:2022, GDPR, HIPAA, PCI DSS v4.0.1, NIST AI RMF &amp; more.</span>
+                </div>
+              </div>
+              <div class="cyber-promo-feat-item">
+                <div class="feat-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                    <line x1="8" y1="21" x2="16" y2="21"/>
+                    <line x1="12" y1="17" x2="12" y2="21"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Multi-Layer Safeguards</strong>
+                  <span>Protect users, endpoints, data, cloud infrastructure, and enterprise networks.</span>
+                </div>
+              </div>
+            </div>
+            <div class="cta-row" style="margin-top: 32px;">
+              <a href="cybersecurity.html" class="btn btn-primary">
+                Explore Cybersecurity <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <a href="contact.html" class="btn btn-ghost">Talk to an Expert</a>
+            </div>
+          </div>
+
+          <div class="cyber-promo-visual">
+            <div class="cyber-layers-card">
+              <div class="cyber-layer-strip active">
+                <span class="layer-badge">01 // USERS &amp; IDENTITY</span>
+                <strong class="layer-title">Access Control &amp; MFA</strong>
+              </div>
+              <div class="cyber-layer-strip">
+                <span class="layer-badge">02 // APPLICATIONS</span>
+                <strong class="layer-title">Application Security &amp; APIs</strong>
+              </div>
+              <div class="cyber-layer-strip active">
+                <span class="layer-badge">03 // DATA &amp; PRIVACY</span>
+                <strong class="layer-title">Data Encryption &amp; Privacy</strong>
+              </div>
+              <div class="cyber-layer-strip">
+                <span class="layer-badge">04 // INFRASTRUCTURE</span>
+                <strong class="layer-title">Cloud Guardrails &amp; Network</strong>
+              </div>
+              <div class="cyber-layer-strip active">
+                <span class="layer-badge">05 // GOVERNANCE</span>
+                <strong class="layer-title">Continuous Compliance Optics</strong>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -2929,6 +3121,7 @@
           <ul>
             <li><a href="#about">About Us</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="cybersecurity.html">Cybersecurity</a></li>
             <li><a href="#industries">Industries</a></li>
             <li><a href="#testimonials">Clients</a></li>
             <li><a href="contact.html">Contact Us</a></li>
