@@ -2,6 +2,25 @@
    ZIVO IT — SHARED HEADER & FOOTER STYLESHEET (header-footer.css)
    ================================================================= */
 
+/* ---------- SECTION SCROLL MARGIN FOR HEADER CLEARANCE ---------- */
+#home,
+#services,
+#cybersecurity,
+#about,
+#platforms,
+#techstack,
+#why,
+#roi,
+#global-presence,
+#our-approach,
+#industries,
+#engagement,
+#testimonials,
+#contact,
+#contact-full {
+  scroll-margin-top: 0px;
+}
+
 /* ---------- HEADER & NAVBAR ---------- */
 header {
   position: relative;
@@ -72,14 +91,17 @@ header .wrap {
   .logo-title {
     font-size: 1.6rem;
   }
+
   .logo-tagline {
     font-size: 0.58rem;
     letter-spacing: 0.02em;
   }
+
   .powered {
     display: flex;
     flex-direction: column;
   }
+
   .logo-img {
     width: 48px;
     height: 48px;
@@ -365,6 +387,7 @@ footer {
     grid-template-columns: 1fr;
     gap: 32px;
   }
+
   .foot-bottom {
     flex-direction: column;
     align-items: flex-start;

@@ -2403,13 +2403,14 @@
             <span class="eyebrow">CYBERSECURITY</span>
             <h2>Secure the systems that power your business.</h2>
             <p class="cyber-promo-desc">
-              Strengthen your security posture with cybersecurity capabilities designed around risk, compliance, technology and continuous protection.
+              Strengthen your security posture with cybersecurity capabilities designed around risk, compliance,
+              technology and continuous protection.
             </p>
             <div class="cyber-promo-features">
               <div class="cyber-promo-feat-item">
                 <div class="feat-icon">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   </svg>
                 </div>
                 <div>
@@ -2420,8 +2421,8 @@
               <div class="cyber-promo-feat-item">
                 <div class="feat-icon">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                    <polyline points="22 4 12 14.01 9 11.01"/>
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
                   </svg>
                 </div>
                 <div>
@@ -2432,9 +2433,9 @@
               <div class="cyber-promo-feat-item">
                 <div class="feat-icon">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                    <line x1="8" y1="21" x2="16" y2="21"/>
-                    <line x1="12" y1="17" x2="12" y2="21"/>
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                    <line x1="8" y1="21" x2="16" y2="21" />
+                    <line x1="12" y1="17" x2="12" y2="21" />
                   </svg>
                 </div>
                 <div>
@@ -2445,7 +2446,10 @@
             </div>
             <div class="cta-row" style="margin-top: 32px;">
               <a href="cybersecurity.html" class="btn btn-primary">
-                Explore Cybersecurity <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                Explore Cybersecurity <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  width="16" height="16">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
               </a>
               <a href="contact.html" class="btn btn-ghost">Talk to an Expert</a>
             </div>
@@ -3318,64 +3322,104 @@
       const header = document.getElementById('siteHeader');
       window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 30));
 
-      /* ---------- Mobile Navigation ---------- */
+      /* ---------- Mobile & Hash Navigation ---------- */
 
       const navToggle = document.getElementById("navToggle");
       const primaryNav = document.getElementById("primaryNav");
       const navOverlay = document.getElementById("navOverlay");
 
       function openMenu() {
-
-        primaryNav.classList.add("open");
-        navOverlay.classList.add("active");
-
+        if (primaryNav) primaryNav.classList.add("open");
+        if (navOverlay) navOverlay.classList.add("active");
         document.body.classList.add("menu-open");
-
-        navToggle.setAttribute("aria-expanded", "true");
+        if (navToggle) navToggle.setAttribute("aria-expanded", "true");
       }
 
       function closeMenu() {
-
-        primaryNav.classList.remove("open");
-        navOverlay.classList.remove("active");
-
+        if (primaryNav) primaryNav.classList.remove("open");
+        if (navOverlay) navOverlay.classList.remove("active");
         document.body.classList.remove("menu-open");
-
-        navToggle.setAttribute("aria-expanded", "false");
+        if (navToggle) navToggle.setAttribute("aria-expanded", "false");
       }
 
-      navToggle.addEventListener("click", () => {
+      if (navToggle) {
+        navToggle.addEventListener("click", () => {
+          if (primaryNav && primaryNav.classList.contains("open"))
+            closeMenu();
+          else
+            openMenu();
+        });
+      }
 
-        if (primaryNav.classList.contains("open"))
-          closeMenu();
-        else
-          openMenu();
-
-      });
-
-      navOverlay.addEventListener("click", closeMenu);
-
-      primaryNav.querySelectorAll("a").forEach(link => {
-
-        link.addEventListener("click", closeMenu);
-
-      });
+      if (navOverlay) {
+        navOverlay.addEventListener("click", closeMenu);
+      }
 
       document.addEventListener("keydown", (e) => {
-
-        if (e.key === "Escape")
-          closeMenu();
-
+        if (e.key === "Escape") closeMenu();
       });
 
       window.addEventListener("resize", () => {
+        if (window.innerWidth > 920) closeMenu();
+      });
 
-        if (window.innerWidth > 920) {
+      /* ---------- Cross-Page & Same-Page Hash Navigation ---------- */
+      function scrollToTarget(targetEl, isSmooth = true) {
+        if (!targetEl) return;
+        targetEl.scrollIntoView({
+          behavior: isSmooth ? "smooth" : "auto",
+          block: "start"
+        });
+      }
 
-          closeMenu();
-
+      function handleHashNavigation() {
+        const hash = window.location.hash;
+        if (!hash || hash === "#" || hash === "#home") return;
+        const target = document.querySelector(hash);
+        if (target) {
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              setTimeout(() => {
+                scrollToTarget(target, true);
+              }, 120);
+            });
+          });
         }
+      }
 
+      if (document.readyState === "complete") {
+        handleHashNavigation();
+      } else {
+        window.addEventListener("load", handleHashNavigation);
+      }
+
+      document.querySelectorAll('a[href*="#"]').forEach(link => {
+        link.addEventListener("click", (e) => {
+          const href = link.getAttribute("href");
+          if (!href) return;
+
+          const hashIdx = href.indexOf("#");
+          if (hashIdx === -1) return;
+
+          const path = href.substring(0, hashIdx);
+          const hash = href.substring(hashIdx);
+
+          const isCurrentPage = path === "" || path === "index.html" || path === window.location.pathname.split("/").pop();
+
+          if (isCurrentPage && hash && hash !== "#") {
+            const target = document.querySelector(hash);
+            if (target) {
+              e.preventDefault();
+              closeMenu();
+              scrollToTarget(target, true);
+              if (history.pushState) {
+                history.pushState(null, null, hash);
+              } else {
+                window.location.hash = hash;
+              }
+            }
+          }
+        });
       });
       /* reveal on scroll */
       const io = new IntersectionObserver((entries) => {
